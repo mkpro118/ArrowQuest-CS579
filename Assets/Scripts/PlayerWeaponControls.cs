@@ -19,14 +19,16 @@ public class PlayerWeaponControls : MonoBehaviour
     [SerializeField] private float arrowReleaseForce = 5f;
     [SerializeField] private float arrowRange = 20f;
 
-    private bool isAiming;
-    private bool wasAiming;
+    private bool isAiming = false;
+    private bool wasAiming = false;
     float pullPercent = 0;
     private static readonly Vector3 screenCenter = new Vector3(0.5f, 0.5f, 0f);
 
     private Vector3 weaponOriginalPosition;
 
     private const float zoomEpsilon = 0.1f;
+
+    private bool isReloading = false;
 
     public void SetAim(bool aim) => isAiming = aim;
 
@@ -67,12 +69,16 @@ public class PlayerWeaponControls : MonoBehaviour
                     targetPoint = ray.GetPoint(arrowRange);
                 }
                 arrowBehavior.ReleaseArrow(targetPoint, arrowReleaseForce * pullPercent);
+                isReloading = true;
                 wasAiming = false;
             }
-            else
+            else if (isReloading)
             {
                 ResetZoom();
-                arrowBehavior.ResetArrowPosition();
+                if(arrowBehavior.ResetArrowPosition())
+                {
+                    isReloading = false;
+                }
             }
         }
     }

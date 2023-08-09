@@ -21,7 +21,7 @@ public class ArrowBehavior : MonoBehaviour
 
     private void Start()
     {
-        arrowOriginalPosition = currentArrow.position;
+        arrowOriginalPosition = currentArrow.localPosition;
         arrowPullRange = Mathf.Abs(arrowOriginalPosition.z - targetZOfPulledArrow);
     }
 
@@ -100,7 +100,7 @@ public class ArrowBehavior : MonoBehaviour
 
     public void UpdateCurrentArrowPosition() => arrowOriginalPosition = currentArrow.localPosition;
 
-    public void ResetArrowPosition(float rate = 3) {
+    public bool ResetArrowPosition(float rate = 3) {
         currentArrow.transform.localPosition = new Vector3(
             currentArrow.transform.localPosition.x,
             currentArrow.transform.localPosition.y,
@@ -110,5 +110,7 @@ public class ArrowBehavior : MonoBehaviour
                 Time.deltaTime * rate
             )
         );
+
+        return Mathf.Abs(currentArrow.localPosition.z - arrowOriginalPosition.z) <= pullEpsilon;
     }
 }
