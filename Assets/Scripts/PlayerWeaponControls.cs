@@ -74,12 +74,12 @@ public class PlayerWeaponControls : MonoBehaviour
             }
             else if (isReloading)
             {
-                ResetZoom();
                 if(arrowBehavior.ResetArrowPosition())
                 {
                     isReloading = false;
                 }
             }
+            ResetZoom();
         }
     }
 

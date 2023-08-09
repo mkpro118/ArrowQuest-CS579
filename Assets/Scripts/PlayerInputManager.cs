@@ -73,7 +73,7 @@ public class PlayerInputManager
         new PlayerButtonInput("Vertical", isAxis: true, useRaw: true, disabled: false),
         new PlayerButtonInput("Mouse X", isAxis: true, useRaw: true, disabled: false),
         new PlayerButtonInput("Mouse Y", isAxis: true, useRaw: true, disabled: false),
-        new PlayerButtonInput("Jump"),
+        new PlayerButtonInput("Jump", disabled: false),
     };
 
     private readonly Dictionary<string, int> defaultInputIndexMap = new Dictionary<string, int>
@@ -86,7 +86,7 @@ public class PlayerInputManager
     };
 
     private IPlayerInput[] playerInputs;
-    private Dictionary<string, int> inputIndexMap;
+    private readonly Dictionary<string, int> inputIndexMap;
 
     public PlayerInputManager(IPlayerInput[] playerInputs = null, Dictionary<string, int> inputIndexMap = null)
     {
@@ -112,7 +112,7 @@ public class PlayerInputManager
     public IPlayerInput this[string name]
     {
         get {
-            if (defaultInputIndexMap.TryGetValue(name, out int idx))
+            if (useDefaults && defaultInputIndexMap.TryGetValue(name, out int idx))
             {
                 return defaultInputs[idx];
             }

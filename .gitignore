@@ -70,3 +70,12 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+
+# Oculus and VR packages
+/[Aa]ssets/Oculus.meta
+/[Aa]ssets/Oculus/
+/[Aa]ssets/Resources.meta
+/[Aa]ssets/Resources/
+/[Aa]ssets/XR.meta
+/[Aa]ssets/XR/

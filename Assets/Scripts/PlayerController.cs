@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 [RequireComponent(typeof(PlayerMotor))]
 [RequireComponent(typeof(PlayerWeaponControls))]
@@ -52,15 +53,47 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        IPlayerInput[] inputs = new IPlayerInput[] {
-            new PlayerKeyInput(sprint),
-            new PlayerKeyInput(aim),
-        };
-        Dictionary<string, int> indexMap = new() {
-            {"sprint", 0},
-            {"aim", 1},
-        };
-        inputManager = new PlayerInputManager(playerInputs: inputs, inputIndexMap: indexMap);
+        if (!string.IsNullOrEmpty(UnityEngine.XR.XRSettings.loadedDeviceName))
+        {
+            Debug.Log("VR device is present");
+            IPlayerInput[] inputs = new IPlayerInput[] {
+                new PlayerVRInput((InputFeatureUsage) CommonUsages.primary2DAxis, isAxis: true, axisIndex: 0),
+                new PlayerVRInput((InputFeatureUsage) CommonUsages.primary2DAxis, isAxis: true, axisIndex: 1),
+                new PlayerVRInput((InputFeatureUsage) CommonUsages.secondary2DAxis, isAxis: true, axisIndex: 0),
+                new PlayerVRInput((InputFeatureUsage) CommonUsages.secondary2DAxis, isAxis: true, axisIndex: 1),
+                new PlayerVRInput((InputFeatureUsage) CommonUsages.primaryButton, isAxis: false),
+                new PlayerVRInput((InputFeatureUsage) CommonUsages.secondaryButton, isAxis: false),
+                new PlayerVRInput((InputFeatureUsage) CommonUsages.triggerButton, isAxis: false),
+            };
+
+            Dictionary<string, int> indexMap = new() {
+                { "Horizontal", 0},
+                { "Vertical", 1},
+                { "Mouse X", 2},
+                { "Mouse Y", 3},
+                { "Jump", 4},
+                {"sprint", 5},
+                {"aim", 6},
+            };
+
+            inputManager = new PlayerInputManager(playerInputs: inputs, inputIndexMap: indexMap);
+            inputManager.DisableDefaults();
+        }
+        else
+        {
+            Debug.Log("No VR device is present");
+            IPlayerInput[] inputs = new IPlayerInput[] {
+                new PlayerKeyInput(sprint),
+                new PlayerKeyInput(aim),
+            };
+
+            Dictionary<string, int> indexMap = new() {
+                {"sprint", 0},
+                {"aim", 1},
+            };
+
+            inputManager = new PlayerInputManager(playerInputs: inputs, inputIndexMap: indexMap);
+        }
     }
 
     private void Start()
