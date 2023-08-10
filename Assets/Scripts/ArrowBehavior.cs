@@ -6,9 +6,11 @@ public class ArrowBehavior : MonoBehaviour
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Transform currentArrow;
     [SerializeField] private Transform arrowExitPoint;
+    [SerializeField] private Transform bowStringEnd;
 
 
     private Vector3 arrowOriginalPosition;
+    private Vector3 bowStringEndOriginalPosition;
     private const float targetZOfPulledArrow = -0.1f;
     private const float pullEpsilon = 0.1f;
 
@@ -17,9 +19,13 @@ public class ArrowBehavior : MonoBehaviour
 
     private Rigidbody arrowRB;
 
+    private Renderer[] arrowRenderers;
+
     private void Start()
     {
         arrowOriginalPosition = currentArrow.localPosition;
+        bowStringEndOriginalPosition = bowStringEnd.localPosition;
+        arrowRenderers = currentArrow.GetComponentsInChildren<Renderer>();
         arrowPullRange = Mathf.Abs(arrowOriginalPosition.z - targetZOfPulledArrow);
     }
 
@@ -36,6 +42,15 @@ public class ArrowBehavior : MonoBehaviour
                 targetZOfPulledArrow,
                 Time.deltaTime * rate
             )
+        );
+        bowStringEnd.transform.localPosition = new Vector3(
+            bowStringEnd.transform.localPosition.x,
+            Mathf.Lerp(
+                bowStringEnd.transform.localPosition.y,
+                targetZOfPulledArrow,
+                Time.deltaTime * rate
+            ),
+            bowStringEnd.transform.localPosition.z
         );
         float pullDistance = Mathf.Abs(targetZOfPulledArrow - currentArrow.transform.localPosition.z);
         return 1 - (pullDistance / arrowPullRange);
@@ -58,7 +73,10 @@ public class ArrowBehavior : MonoBehaviour
             currentArrow.transform.rotation
         );
 
-        currentArrow.GetComponent<Renderer>().enabled = false;
+        foreach( Renderer renderer in arrowRenderers)
+        {
+            renderer.enabled = false;
+        }
 
         arrow.name = "Arrow";
         arrowRB = arrow.AddComponent<Rigidbody>();
@@ -75,6 +93,7 @@ public class ArrowBehavior : MonoBehaviour
 
         arrowRB.AddForce(direction * releaseForce, ForceMode.Impulse);
 
+        bowStringEnd.transform.localPosition = bowStringEndOriginalPosition;
 
         Invoke(nameof(EnableCollision), 0.05f);
         Invoke(nameof(EnableArrow), 1f);
@@ -82,7 +101,10 @@ public class ArrowBehavior : MonoBehaviour
 
     private void EnableArrow()
     {
-        currentArrow.GetComponent<Renderer>().enabled = true;
+        foreach (Renderer renderer in arrowRenderers)
+        {
+            renderer.enabled = true;
+        }
     }
 
 

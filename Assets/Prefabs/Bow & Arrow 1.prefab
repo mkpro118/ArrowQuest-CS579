@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1165221649597344780
+--- !u!1 &4564936338349134436
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5394560388524407613}
+  - component: {fileID: 15591056942768509}
+  m_Layer: 7
+  m_Name: Bow & Arrow 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &15591056942768509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4564936338349134436}
+  m_LocalRotation: {x: -0, y: -0.047460046, z: -0, w: 0.9988732}
+  m_LocalPosition: {x: 0.394, y: 0, z: -0.129}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8522381839657187382}
+  - {fileID: 1783267888367450901}
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: -5.441, z: 0}
+--- !u!1 &7046686288004312461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8522381839657187382}
   m_Layer: 7
   m_Name: Arrow
   m_TagString: Untagged
@@ -16,24 +49,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5394560388524407613
+--- !u!4 &8522381839657187382
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165221649597344780}
+  m_GameObject: {fileID: 7046686288004312461}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.199, y: 0, z: 0.482}
+  m_LocalPosition: {x: 0.19, y: 0, z: 0.036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4677765865744452524}
-  - {fileID: 4230202217478460587}
-  m_Father: {fileID: 6771327151057848636}
+  - {fileID: 5568480815400071067}
+  - {fileID: 4271169685915193747}
+  m_Father: {fileID: 15591056942768509}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4099699981235977690
+--- !u!1 &8083077773468841032
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,40 +74,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6771327151057848636}
-  m_Layer: 7
-  m_Name: Bow & Arrow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6771327151057848636
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4099699981235977690}
-  m_LocalRotation: {x: -0, y: -0.047460046, z: -0, w: 0.9988732}
-  m_LocalPosition: {x: 0.394, y: 0, z: -0.129}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5394560388524407613}
-  - {fileID: 2726214632900079155}
-  m_Father: {fileID: 0}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -5.441, z: 0}
---- !u!1 &7286581443093833389
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2726214632900079155}
+  - component: {fileID: 1783267888367450901}
   m_Layer: 7
   m_Name: Bow
   m_TagString: Untagged
@@ -82,23 +82,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2726214632900079155
+--- !u!4 &1783267888367450901
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7286581443093833389}
+  m_GameObject: {fileID: 8083077773468841032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.216, y: 0, z: 0.476}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8807767940426125866}
-  m_Father: {fileID: 6771327151057848636}
+  - {fileID: 8652927839393441072}
+  m_Father: {fileID: 15591056942768509}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8856944791502451974
+--- !u!1 &8922431390715132624
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4677765865744452524}
+  - component: {fileID: 5568480815400071067}
   m_Layer: 7
   m_Name: Arrow Exit Point
   m_TagString: Untagged
@@ -114,44 +114,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4677765865744452524
+--- !u!4 &5568480815400071067
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8856944791502451974}
+  m_GameObject: {fileID: 8922431390715132624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 2.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5394560388524407613}
+  m_Father: {fileID: 8522381839657187382}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &8803147770670542954
+--- !u!1001 &8648329660173174640
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2726214632900079155}
+    m_TransformParent: {fileID: 1783267888367450901}
     m_Modifications:
     - target: {fileID: 1717406733745140, guid: d03c4353fda446d4f8df56d422578d64, type: 3}
       propertyPath: m_Name
       value: Wooden Bow
-      objectReference: {fileID: 0}
-    - target: {fileID: 4429432022911190, guid: d03c4353fda446d4f8df56d422578d64, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4429432022911190, guid: d03c4353fda446d4f8df56d422578d64, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0106
-      objectReference: {fileID: 0}
-    - target: {fileID: 4429432022911190, guid: d03c4353fda446d4f8df56d422578d64, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4620178347958848, guid: d03c4353fda446d4f8df56d422578d64, type: 3}
       propertyPath: m_RootOrder
@@ -205,28 +193,25 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.y
       value: 0.009453094
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 95329518231908724, guid: d03c4353fda446d4f8df56d422578d64, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d03c4353fda446d4f8df56d422578d64, type: 3}
---- !u!4 &8807767940426125866 stripped
+--- !u!4 &8652927839393441072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4620178347958848, guid: d03c4353fda446d4f8df56d422578d64, type: 3}
-  m_PrefabInstance: {fileID: 8803147770670542954}
+  m_PrefabInstance: {fileID: 8648329660173174640}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &8890381435127056601
+--- !u!1001 &8832252102408539617
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5394560388524407613}
+    m_TransformParent: {fileID: 8522381839657187382}
     m_Modifications:
-    - target: {fileID: 1865234731086739440, guid: b8d57f0c5b0748d40a0184121ed24c12, type: 3}
-      propertyPath: m_Name
-      value: Wooden Arrow Model
-      objectReference: {fileID: 0}
     - target: {fileID: 4743495810772524146, guid: b8d57f0c5b0748d40a0184121ed24c12, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -237,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4743495810772524146, guid: b8d57f0c5b0748d40a0184121ed24c12, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.80000013
       objectReference: {fileID: 0}
     - target: {fileID: 4743495810772524146, guid: b8d57f0c5b0748d40a0184121ed24c12, type: 3}
       propertyPath: m_LocalScale.z
@@ -307,17 +292,13 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 8527015685570710524, guid: b8d57f0c5b0748d40a0184121ed24c12, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8d57f0c5b0748d40a0184121ed24c12, type: 3}
---- !u!4 &4230202217478460587 stripped
+--- !u!4 &4271169685915193747 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4743495810772524146, guid: b8d57f0c5b0748d40a0184121ed24c12, type: 3}
-  m_PrefabInstance: {fileID: 8890381435127056601}
+  m_PrefabInstance: {fileID: 8832252102408539617}
   m_PrefabAsset: {fileID: 0}
