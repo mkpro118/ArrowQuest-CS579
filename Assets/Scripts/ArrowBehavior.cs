@@ -96,7 +96,7 @@ public class ArrowBehavior : MonoBehaviour
         bowStringEnd.transform.localPosition = bowStringEndOriginalPosition;
 
         Invoke(nameof(EnableCollision), 0.05f);
-        Invoke(nameof(EnableArrow), 1f);
+        Invoke(nameof(EnableArrow), 0.5f);
     }
 
     private void EnableArrow()
@@ -120,7 +120,7 @@ public class ArrowBehavior : MonoBehaviour
 
     public void UpdateCurrentArrowPosition() => arrowOriginalPosition = currentArrow.localPosition;
 
-    public bool ResetArrowPosition(float rate = 3) {
+    public bool ResetArrowPosition(float rate = 5) {
         currentArrow.transform.localPosition = new Vector3(
             currentArrow.transform.localPosition.x,
             currentArrow.transform.localPosition.y,

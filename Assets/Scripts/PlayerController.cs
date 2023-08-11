@@ -69,8 +69,8 @@ public class PlayerController : MonoBehaviour
             Dictionary<string, int> indexMap = new() {
                 { "Horizontal", 0},
                 { "Vertical", 1},
-                { "Mouse X", 2},
-                { "Mouse Y", 3},
+                { "MouseX", 2},
+                { "MouseY", 3},
                 { "Jump", 4},
                 {"sprint", 5},
                 {"aim", 6},
@@ -107,8 +107,8 @@ public class PlayerController : MonoBehaviour
     {
         inputManager.Update();
         // Move Player
-        float xMove = inputManager.Horizontal;
-        float zMove = inputManager.Vertical;
+        float xMove = inputManager["Horizontal"].Value;
+        float zMove = inputManager["Vertical"].Value;
 
         Vector3 velocity = transform.right * xMove + transform.forward * zMove;
 
@@ -118,17 +118,17 @@ public class PlayerController : MonoBehaviour
         motor.SetPlayerVelocity(velocity);
 
         // Rotate Player
-        float yRot = inputManager.MouseX;
+        float yRot = inputManager["Mouse X"].Value;
         Vector3 rotation = new Vector3(0f, yRot, 0f) * mouseXSensitivity;
         motor.SetPlayerRotation(rotation);
 
         // Rotate Camera
-        float xRot = inputManager.MouseY;
+        float xRot = inputManager["Mouse Y"].Value;
         rotation = new Vector3(xRot, 0f, 0f) * mouseYSensitivity;
         motor.SetCameraRotation(invertAxis ? -rotation : rotation);
 
         // Add Jump Force
-        bool jump = inputManager.Jump;
+        bool jump = inputManager["Jump"].Down;
         motor.setJump(jump ? jumpForce : 0f);
 
         // Aim Weapon
